@@ -1,10 +1,10 @@
 ---
-title: "Interpreting LIGER results"
+title: "Interpreting `liger` results"
 author: "Jean Fan"
-date: "August 23, 2018"
+date: "8/23/2018"
 output: rmarkdown::pdf_document
 vignette: >
-  %\VignetteIndexEntry{Interpreting LIGER results}
+  %\VignetteIndexEntry{interpreting}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

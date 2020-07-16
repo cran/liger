@@ -1,8 +1,8 @@
-## ---- eval=FALSE---------------------------------------------------------
+## ---- eval=FALSE--------------------------------------------------------------
 #  require(devtools)
 #  devtools::install_github("JEFworks/liger")
 
-## ---- data---------------------------------------------------------------
+## ---- data--------------------------------------------------------------------
 set.seed(0)
 
 library(liger)
@@ -34,7 +34,7 @@ heatmap(mat[vi,], Rowv=NA, Colv=NA, scale="none",
         col=colorRampPalette(c("blue", "white", "red"))(100),
         RowSideColors = rainbow(2)[as.factor(vi %in% gs)]) 
 
-## ---- diffexp------------------------------------------------------------
+## ---- diffexp-----------------------------------------------------------------
 # run differential expression analysis
 vals <- sapply(1:nrow(mat), function(i) {
   pv <- t.test(mat[i, 1:round(Nsamples/2)], mat[i, round(Nsamples/2+1):Nsamples])$p.val
@@ -48,7 +48,7 @@ barplot(sort(vals[gs], decreasing=TRUE), ylim=c(0, 10))
 bonf <- function(a, n) { 1 - (1-a) ** (1/n) }
 abline(h = -log10(bonf(0.05, nrow(mat))), col="red")
 
-## ---- gsea---------------------------------------------------------------
+## ---- gsea--------------------------------------------------------------------
 # run iterative bulk gsea
 gseaVals <- iterative.bulk.gsea(values = vals, set.list = org.Hs.GO2Symbol.list[1:100], n.rand=500)
 # identify significant genesets
@@ -60,6 +60,6 @@ for(i in seq_along(gseaSig)) {
   gsea(values=vals, geneset=gs, mc.cores=1, plot=TRUE, n.rand=500)
 }
 
-## ---- echo=TRUE----------------------------------------------------------
+## ---- echo=TRUE---------------------------------------------------------------
 sessionInfo()
 
