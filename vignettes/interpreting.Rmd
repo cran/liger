@@ -2,9 +2,9 @@
 title: "Interpreting `liger` results"
 author: "Jean Fan"
 date: "8/23/2018"
-output: rmarkdown::pdf_document
+output: rmarkdown::html_document
 vignette: >
-  %\VignetteIndexEntry{interpreting}
+  %\VignetteIndexEntry{Interpreting liger results}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
